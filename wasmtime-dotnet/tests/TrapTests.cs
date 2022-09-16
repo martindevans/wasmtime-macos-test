@@ -46,21 +46,21 @@ namespace Wasmtime.Tests
                 .WithMessage("wasm trap: wasm `unreachable` instruction executed*");
         }
 
-        [Fact]
-        public void ItCatchesAStackOverflow()
-        {
-            Action action = () =>
-            {
-                var instance = Linker.Instantiate(Store, Fixture.Module);
-                var run = instance.GetAction("run_stack_overflow");
-                run.Should().NotBeNull();
-                run();
-            };
+        // [Fact]
+        // public void ItCatchesAStackOverflow()
+        // {
+        //     Action action = () =>
+        //     {
+        //         var instance = Linker.Instantiate(Store, Fixture.Module);
+        //         var run = instance.GetAction("run_stack_overflow");
+        //         run.Should().NotBeNull();
+        //         run();
+        //     };
 
-            action
-                .Should()
-                .Throw<TrapException>();
-        }
+        //     action
+        //         .Should()
+        //         .Throw<TrapException>();
+        // }
 
         [Fact]
         public void CopiedFromProgram()
