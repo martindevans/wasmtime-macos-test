@@ -24,4 +24,4 @@ jobs:
     - name: Run
       run: dotnet run --project ConsoleApp/ConsoleApp/ConsoleApp.csproj
     - name: Test
-      run: dotnet test wasmtime-dotnet/tests/Wasmtime.Tests.csproj -v diag --blame-crash
+      run: dotnet test wasmtime-dotnet/tests/Wasmtime.Tests.csproj --blame-crash
