@@ -36,13 +36,13 @@ unreachable
     )";
 
 
-
-var engine = new Engine();
+var config =  new Config().WithReferenceTypes(true);
+var engine = new Engine(config);
 var module = Module.FromText(engine, "name", WAT);
 var linker = new Linker(engine);
 var store = new Store(engine);
 var instance = linker.Instantiate(store, module);
-var run = instance.GetAction("run_stack_overflow");
+var run = instance.GetAction("run_stack_overflow")!;
 
 try
 {
