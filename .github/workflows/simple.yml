@@ -11,12 +11,15 @@ env:
 
 jobs:
   build:
-
     runs-on: macos-latest
+    strategy:
+      matrix:
+        dotnet: [ '3.1.x', '5.0.x', '6.0.x' ]
 
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: ${{ matrix.dotnet }}
     - name: Build
-      run: cargo build --verbose
-    - name: Run tests
-      run: cargo test --verbose
+      run: dotnet run <my project>
