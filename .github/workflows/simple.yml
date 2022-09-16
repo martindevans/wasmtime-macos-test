@@ -22,4 +22,4 @@ jobs:
       with:
         dotnet-version: ${{ matrix.dotnet }}
     - name: Build
-      run: dotnet run <my project>
+      run: dotnet run ConsoleApp
