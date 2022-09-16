@@ -21,7 +21,7 @@ jobs:
     - uses: actions/setup-dotnet@v2
       with:
         dotnet-version: ${{ matrix.dotnet }}
-    - name: Build
+    - name: Run
       run: dotnet run --project ConsoleApp/ConsoleApp/ConsoleApp.csproj
     - name: Test
-      run: dotnet test --project wasmtime-dotnet/tests/Wasmtime.Tests.csproj
+      run: dotnet test wasmtime-dotnet/tests/Wasmtime.Tests.csproj
